@@ -1,17 +1,21 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
-import HomePage from '../pages/HomePage.vue';
-
 const routes = [
+  { path: '/', redirect: { name: 'CurrentWeather' } },
   {
-    path: '/',
-    name: 'Home',
-    component: HomePage,
+    path: '/current',
+    name: 'CurrentWeather',
+    component: () => import('../pages/CurrentWeatherPage.vue'),
   },
   {
-    path: '/about',
-    name: 'About',
-    component: () => import('../pages/AboutPage.vue'),
+    path: '/hourly',
+    name: 'HourlyWeather',
+    component: () => import('../pages/HourlyWeatherPage.vue'),
+  },
+  {
+    path: '/daily',
+    name: 'DailyWeather',
+    component: () => import('../pages/DailyWeatherPage.vue'),
   },
   {
     path: '/:catchAll(.*)',

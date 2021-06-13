@@ -1,30 +1,33 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view />
+  <current-weather-hero></current-weather-hero>
+  <the-main-nav class="mb-5"></the-main-nav>
+  <router-view></router-view>
 </template>
 
+<script>
+import CurrentWeatherHero from './components/CurrentWeatherHero.vue';
+import TheMainNav from './components/TheMainNav.vue';
+
+export default {
+  components: { CurrentWeatherHero, TheMainNav },
+  mounted: function () {
+    this.$store.dispatch('getWeatherData');
+  },
+};
+</script>
+
 <style lang="scss">
+:root {
+  --color-primary: #2c4c69;
+  --color-secondary: #ceebff;
+}
+body {
+  background-color: var(--color-secondary);
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
 }
 </style>
