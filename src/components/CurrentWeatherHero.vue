@@ -1,0 +1,131 @@
+<template>
+  <div class="current-weather-hero">
+    <div class="bg-image" :style="bgImageStyle" />
+    <div
+      class="
+        bg-text
+        d-flex
+        flex-column
+        justify-content-evenly
+        align-items-center
+        flex-md-row flex-wrap
+        justify-content-lg-start
+      "
+      v-if="current && current.weather && current.weather.length > 0"
+    >
+      <img :src="weatherIconSrc" :alt="weatherDescription" />
+      <div class="d-flex flex-column justify-content-center">
+        <div class="city-name">{{ city }}</div>
+        <div class="weather-description">{{ weatherDescription }}</div>
+        <div class="weather-temp">
+          <base-units type="temp">{{ Math.round(current.temp) }}</base-units>
+        </div>
+      </div>
+      <city-search class="ms-lg-auto align-self-lg-start p-lg-4"></city-search>
+    </div>
+  </div>
+</template>
+
+<script>
+import { mapGetters } from 'vuex';
+import BaseUnits from './BaseUnits.vue';
+import CitySearch from './CitySearch.vue';
+
+export default {
+  components: { BaseUnits, CitySearch },
+  computed: {
+    ...mapGetters(['selectedCity', 'current']),
+    bgImageStyle() {
+      return { backgroundImage: `url(${require('@/assets/weather.jpg')})` };
+    },
+    weatherIconSrc() {
+      return require(`@/assets/weather-icons/desc/${this.current.weather[0].icon}.svg`);
+    },
+    weatherDescription() {
+      return this.current.weather[0].description;
+    },
+    city() {
+      return `${this.selectedCity.name}, ${this.selectedCity.state}`;
+    },
+  },
+};
+</script>
+
+<style lang="scss" scoped>
+.current-weather-hero {
+  position: relative;
+  width: 100vw;
+  height: 400px;
+  overflow: hidden;
+  .bg-image,
+  .bg-text {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+  }
+  .bg-image {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(6px);
+    transform: scale(1.1);
+    z-index: 1;
+  }
+  .bg-text {
+    background-color: rgba(0, 0, 0, 0.15);
+    color: white;
+    z-index: 2;
+    .city-name,
+    .weather-temp {
+      font-size: 2rem;
+    }
+    .weather-description {
+      font-size: 1.1rem;
+      text-transform: capitalize;
+    }
+    img {
+      height: 150px;
+    }
+  }
+}
+@media (min-width: 768px) {
+  .current-weather-hero {
+    .bg-text {
+      .city-name,
+      .weather-temp {
+        font-size: 2.5rem;
+      }
+      .weather-description {
+        font-size: 1.3rem;
+      }
+      img {
+        height: 275px;
+        width: 50vw;
+      }
+      & > div:first-of-type {
+        width: 50vw;
+      }
+    }
+  }
+}
+@media (min-width: 992px) {
+  .current-weather-hero {
+    .bg-text {
+      .city-name,
+      .weather-temp {
+        font-size: 3rem;
+      }
+      .weather-description {
+        font-size: 1.6rem;
+      }
+      img {
+        height: 325px;
+        width: calc(100vw / 3);
+      }
+      & > div:first-of-type {
+        width: calc(100vw / 3);
+      }
+    }
+  }
+}
+</style>
