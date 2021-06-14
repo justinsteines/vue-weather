@@ -96,6 +96,6 @@ export default {
 <style lang="scss" scoped>
 .city-search,
 .suggestions {
-  z-index: 3;
+  z-index: 1;
 }
 </style>

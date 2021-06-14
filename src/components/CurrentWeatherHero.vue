@@ -56,25 +56,29 @@ export default {
   position: relative;
   width: 100vw;
   height: 400px;
-  overflow: hidden;
   .bg-image,
-  .bg-text {
+  .bg-text,
+  .bg-text::before {
     position: absolute;
     height: 100%;
     width: 100%;
+  }
+  .bg-text::before {
+    content: '';
+    // backdrop-filter: blur(2px);
+    background-color: rgba(0, 0, 0, 0.5);
   }
   .bg-image {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    filter: blur(6px);
-    transform: scale(1.1);
-    z-index: 1;
   }
   .bg-text {
     background-color: rgba(0, 0, 0, 0.15);
     color: white;
-    z-index: 2;
+    & > * {
+      z-index: 1;
+    }
     .city-name,
     .weather-temp {
       font-size: 2rem;
