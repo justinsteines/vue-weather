@@ -1,7 +1,7 @@
 <template>
   <div class="d-flex flex-column flex-md-row flex-wrap justify-content-center">
     <day-weather
-      v-for="day in daily"
+      v-for="day in daily.slice(1)"
       :key="day.dt"
       :dt="day.dt"
       :humidity="day.humidity"

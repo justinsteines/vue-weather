@@ -1,3 +1,3 @@
 <template>
-  <h1>Hourly Weather Page!</h1>
+  <h1 class="text-start mb-4">48-Hour Forecast</h1>
 </template>

@@ -20,7 +20,7 @@
         </div>
       </div>
     </div>
-    <div class="row row-cols-2 metrics g-0 bg-dark text-white pb-2 px-2">
+    <div class="row row-cols-2 metrics g-0 pb-2 px-2">
       <base-metric title="chance precip." icon="raindrops">
         {{ popFormatted }}
       </base-metric>
@@ -104,6 +104,7 @@ export default {
     width: 150px;
   }
   .metrics {
+    background-color: var(--color-dark);
     border-bottom-left-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
     & > * {

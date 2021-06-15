@@ -1,7 +1,9 @@
 <template>
   <current-weather-hero></current-weather-hero>
   <the-main-nav class="mb-5"></the-main-nav>
-  <router-view></router-view>
+  <div class="container">
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
@@ -19,7 +21,11 @@ export default {
 <style lang="scss">
 :root {
   --color-primary: #2c4c69;
-  --color-secondary: #ceebff;
+  --color-secondary: #d0dee7;
+  --color-dark: #202c38;
+  // --color-primary: #2c4c69;
+  // --color-secondary: #d0dee7;
+  // --color-dark: #455e75;
 }
 body {
   background-color: var(--color-secondary);
