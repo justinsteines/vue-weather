@@ -1,12 +1,17 @@
 <template>
   <current-weather-hero></current-weather-hero>
   <the-main-nav class="mb-5"></the-main-nav>
-  <div class="container">
+  <the-loading-spinner
+    v-if="!isDataRetrieved"
+    class="mt-5"
+  ></the-loading-spinner>
+  <div class="container" v-else>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import CurrentWeatherHero from './components/CurrentWeatherHero.vue';
 import TheMainNav from './components/TheMainNav.vue';
 
@@ -14,6 +19,25 @@ export default {
   components: { CurrentWeatherHero, TheMainNav },
   mounted: function () {
     this.$store.dispatch('getWeatherData');
+  },
+  computed: {
+    ...mapGetters(['current', 'daily', 'hourly', 'minutely', 'isLoading']),
+    isDataRetrieved() {
+      if (
+        !this.isLoading &&
+        this.current &&
+        Object.keys(this.current).length > 0 &&
+        this.daily &&
+        this.daily.length > 0 &&
+        this.hourly &&
+        this.hourly.length > 0 &&
+        this.minutely &&
+        this.minutely.length > 0
+      ) {
+        return true;
+      }
+      return false;
+    },
   },
 };
 </script>

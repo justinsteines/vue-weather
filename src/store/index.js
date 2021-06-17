@@ -16,6 +16,7 @@ export default createStore({
         country: 'US',
         coord: { lon: -122.032181, lat: 37.323002 },
       },
+      isLoading: false,
     };
   },
   getters: {
@@ -37,6 +38,9 @@ export default createStore({
     selectedCity(state) {
       return state.selectedCity;
     },
+    isLoading(state) {
+      return state.isLoading;
+    },
   },
   mutations: {
     weatherData(state, payload) {
@@ -47,6 +51,9 @@ export default createStore({
     },
     selectedCity(state, payload) {
       state.selectedCity = payload;
+    },
+    setIsLoading(state, payload) {
+      state.isLoading = payload;
     },
   },
   actions: {
@@ -59,12 +66,14 @@ export default createStore({
         lon: this.getters.selectedCity.coord.lon,
         lat: this.getters.selectedCity.coord.lat,
       });
+      context.commit('setIsLoading', true);
       const res = await fetch(
         `${
           process.env.VUE_APP_WEATHER_API_DATA_URL
         }/data?${searchParams.toString()}`
       );
       const weatherData = await res.json();
+      context.commit('setIsLoading', false);
       console.log(weatherData);
       context.commit('weatherData', weatherData);
     },
