@@ -7,6 +7,7 @@ export default createStore({
       daily: [],
       hourly: [],
       minutely: [],
+      alerts: [],
       units: 'imperial',
       selectedCity: {
         _id: '60027396dbaf3c9d4e69c047',
@@ -35,6 +36,9 @@ export default createStore({
     minutely(state) {
       return state.minutely;
     },
+    alerts(state) {
+      return state.alerts;
+    },
     selectedCity(state) {
       return state.selectedCity;
     },
@@ -48,6 +52,7 @@ export default createStore({
       state.daily = payload.daily;
       state.hourly = payload.hourly;
       state.minutely = payload.minutely;
+      state.alerts = payload.alerts;
     },
     selectedCity(state, payload) {
       state.selectedCity = payload;
