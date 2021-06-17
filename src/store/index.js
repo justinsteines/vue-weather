@@ -65,6 +65,7 @@ export default createStore({
         }/data?${searchParams.toString()}`
       );
       const weatherData = await res.json();
+      console.log(weatherData);
       context.commit('weatherData', weatherData);
     },
     setSelectedCity(context, city) {
