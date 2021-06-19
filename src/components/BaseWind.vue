@@ -1,6 +1,7 @@
 <template>
   <small v-if="wDirection">{{ wDirection }}</small>
   <base-units v-if="wSpeed" type="speed">&nbsp;{{ wSpeed }}&nbsp;</base-units>
+  <base-units v-if="!wSpeed && !wGust" type="speed">&nbsp;0&nbsp;</base-units>
   <span v-if="wGust">
     <base-units type="speed">{{ wGust }}&nbsp;</base-units>
   </span>
