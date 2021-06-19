@@ -1,5 +1,5 @@
 <template>
-  <td class="for-hour">{{ forHour }}</td>
+  <td class="for-hour rounded-start">{{ forHour }}</td>
   <td class="weather-description">
     <img
       :src="require(`@/assets/weather-icons/desc/${weather[0].icon}.svg`)"
@@ -12,13 +12,13 @@
       ><base-units type="temp">{{ Math.round(temp) }}</base-units></span
     >
   </td>
-  <td>
+  <td class="rounded-sm-end">
     <img
       src="@/assets/weather-icons/raindrops.svg"
       alt="probability of precipitation"
     />{{ popFormatted }}
   </td>
-  <td class="d-none d-md-table-cell">
+  <td class="d-none d-md-table-cell rounded-md-end">
     <img
       :src="
         require(`@/assets/weather-icons/uvi/uv-index-${Math.round(uvi)}.svg`)
@@ -26,7 +26,7 @@
       alt="uv index"
     />{{ uvi.toFixed(1) }}
   </td>
-  <td class="d-none d-lg-table-cell">
+  <td class="d-none d-lg-table-cell rounded-lg-end">
     <img src="@/assets/weather-icons/humidity.svg" alt="humidity" />{{ humidity
     }}<small>%</small>
   </td>
@@ -36,12 +36,12 @@
       alt="cloud cover"
     /><base-wind :windDeg="windDeg" :windSpeed="windSpeed"></base-wind>
   </td>
-  <td class="d-none d-xl-table-cell">
+  <td class="d-none d-xl-table-cell rounded-xl-end">
     <img src="@/assets/weather-icons/wind.svg" alt="cloud cover" /><base-wind
       :windGust="windGust"
     ></base-wind>
   </td>
-  <td class="d-none d-xxl-table-cell">
+  <td class="d-none d-xxl-table-cell rounded-xxl-end">
     <img src="@/assets/weather-icons/cloudy.svg" alt="cloud cover" />{{ clouds
     }}<small>%</small>
   </td>
@@ -102,6 +102,36 @@ td {
   }
   img {
     width: 40px;
+  }
+}
+@media (max-width: 768px) {
+  .rounded-sm-end {
+    border-top-right-radius: 0.5rem !important;
+    border-bottom-right-radius: 0.5rem !important;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.9px) {
+  .rounded-md-end {
+    border-top-right-radius: 0.5rem !important;
+    border-bottom-right-radius: 0.5rem !important;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199.9px) {
+  .rounded-lg-end {
+    border-top-right-radius: 0.5rem !important;
+    border-bottom-right-radius: 0.5rem !important;
+  }
+}
+@media (min-width: 1200px) and (max-width: 1399.9px) {
+  .rounded-xl-end {
+    border-top-right-radius: 0.5rem !important;
+    border-bottom-right-radius: 0.5rem !important;
+  }
+}
+@media (min-width: 1400px) {
+  .rounded-xxl-end {
+    border-top-right-radius: 0.5rem !important;
+    border-bottom-right-radius: 0.5rem !important;
   }
 }
 </style>
