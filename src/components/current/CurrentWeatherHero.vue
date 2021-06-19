@@ -36,7 +36,10 @@ export default {
   computed: {
     ...mapGetters(['selectedCity', 'current']),
     bgImageStyle() {
-      return { backgroundImage: `url(${require('@/assets/weather.jpg')})` };
+      return {
+        backgroundImage:
+          'url(https://res.cloudinary.com/jsigma/image/upload/w_2000/q_auto/f_auto/vue-weather-dashboard/weather.jpg)',
+      };
     },
     weatherIconSrc() {
       return require(`@/assets/weather-icons/desc/${this.current.weather[0].icon}.svg`);
