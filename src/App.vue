@@ -5,7 +5,7 @@
     v-if="!isDataRetrieved"
     class="mt-5"
   ></the-loading-spinner>
-  <div class="container" v-else>
+  <div class="container mb-5" v-else>
     <weather-alerts :alerts="alerts"></weather-alerts>
     <router-view></router-view>
   </div>
