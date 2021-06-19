@@ -96,7 +96,7 @@ export default {
       color: var(--color-secondary);
       border-radius: 0.5rem;
       &:nth-child(even) {
-        background-color: #345777;
+        background-color: #416383;
       }
     }
   }
