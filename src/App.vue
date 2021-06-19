@@ -21,7 +21,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import CurrentWeatherHero from './components/CurrentWeatherHero.vue';
+import CurrentWeatherHero from './components/current/CurrentWeatherHero.vue';
 import TheMainNav from './components/TheMainNav.vue';
 import WeatherAlert from './components/WeatherAlert.vue';
 

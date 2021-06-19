@@ -4,7 +4,7 @@
 </template>
 
 <script>
-import DailyWeather from '../components/DailyWeather.vue';
+import DailyWeather from '../components/daily/DailyWeather.vue';
 
 export default {
   components: { DailyWeather },

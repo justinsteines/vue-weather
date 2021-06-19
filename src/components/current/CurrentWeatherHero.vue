@@ -28,8 +28,8 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import BaseUnits from './BaseUnits.vue';
-import CitySearch from './CitySearch.vue';
+import BaseUnits from '../BaseUnits.vue';
+import CitySearch from '../CitySearch.vue';
 
 export default {
   components: { BaseUnits, CitySearch },

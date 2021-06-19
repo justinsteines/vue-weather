@@ -48,8 +48,8 @@
 
 <script>
 import BaseCurrentMetric from './BaseCurrentMetric.vue';
-import BaseUnits from './BaseUnits.vue';
-import BaseWind from './BaseWind.vue';
+import BaseUnits from '../BaseUnits.vue';
+import BaseWind from '../BaseWind.vue';
 
 export default {
   components: { BaseCurrentMetric, BaseUnits, BaseWind },

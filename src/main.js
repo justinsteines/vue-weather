@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import App from './App.vue';
 import router from './router';
 import store from './store';
-import TheLoadingSpinner from './components/UI/TheLoadingSpinner.vue';
+import TheLoadingSpinner from './components/TheLoadingSpinner.vue';
 
 const app = createApp(App);
 

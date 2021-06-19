@@ -5,7 +5,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import CurrentWeather from '../components/CurrentWeather.vue';
+import CurrentWeather from '../components/current/CurrentWeather.vue';
 
 export default {
   components: { CurrentWeather },

@@ -5,7 +5,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import HourlyWeather from '../components/HourlyWeather.vue';
+import HourlyWeather from '../components/hourly/HourlyWeather.vue';
 
 export default {
   components: { HourlyWeather },

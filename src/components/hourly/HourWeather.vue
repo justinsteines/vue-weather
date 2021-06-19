@@ -51,8 +51,8 @@
 import dayjs from 'dayjs';
 import isToday from 'dayjs/plugin/isToday';
 import isTomorrow from 'dayjs/plugin/isTomorrow';
-import BaseUnits from './BaseUnits.vue';
-import BaseWind from './BaseWind.vue';
+import BaseUnits from '../BaseUnits.vue';
+import BaseWind from '../BaseWind.vue';
 
 dayjs.extend(isToday);
 dayjs.extend(isTomorrow);

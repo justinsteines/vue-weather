@@ -50,9 +50,9 @@
 <script>
 import dayjs from 'dayjs';
 
-import BaseUnits from './BaseUnits.vue';
-import BaseWind from './BaseWind.vue';
-import BaseMetric from './BaseMetric.vue';
+import BaseUnits from '../BaseUnits.vue';
+import BaseWind from '../BaseWind.vue';
+import BaseMetric from './BaseDayMetric.vue';
 
 export default {
   components: { BaseUnits, BaseWind, BaseMetric },
