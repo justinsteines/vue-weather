@@ -2,6 +2,17 @@ import { createStore } from 'vuex';
 
 export default createStore({
   state() {
+    let city = {
+      _id: '60027396dbaf3c9d4e69c047',
+      id: 5341145,
+      name: 'Cupertino',
+      state: 'CA',
+      country: 'US',
+      coord: { lon: -122.032181, lat: 37.323002 },
+    };
+    if (window.localStorage.getItem('city')) {
+      city = JSON.parse(window.localStorage.getItem('city'));
+    }
     return {
       current: {},
       daily: [],
@@ -9,14 +20,7 @@ export default createStore({
       minutely: [],
       alerts: [],
       units: 'imperial',
-      selectedCity: {
-        _id: '60027396dbaf3c9d4e69c047',
-        id: 5341145,
-        name: 'Cupertino',
-        state: 'CA',
-        country: 'US',
-        coord: { lon: -122.032181, lat: 37.323002 },
-      },
+      selectedCity: city,
       isLoading: false,
     };
   },
@@ -83,6 +87,7 @@ export default createStore({
       context.commit('weatherData', weatherData);
     },
     setSelectedCity(context, city) {
+      window.localStorage.setItem('city', JSON.stringify(city));
       context.commit('selectedCity', city);
       this.dispatch('getWeatherData');
     },
