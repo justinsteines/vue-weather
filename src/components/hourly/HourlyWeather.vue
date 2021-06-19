@@ -77,7 +77,6 @@ export default {
       );
     },
     dayAfterTomorrowName() {
-      console.log(this.dayAfterTomorrow);
       if (!this.dayAfterTomorrow || this.dayAfterTomorrow.length <= 0) {
         return '';
       }

@@ -23,8 +23,16 @@
       </div>
       <city-search class="ms-lg-auto align-self-lg-start p-lg-4"></city-search>
     </div>
-    <div v-else class="d-flex justify-content-center align-items-center h-100">
+    <div
+      v-else-if="isLoading"
+      class="d-flex justify-content-center align-items-center h-100"
+    >
       <the-loading-spinner></the-loading-spinner>
+    </div>
+    <div v-else class="d-flex justify-content-center align-items-center h-100">
+      <p class="error-message fs-3 text-white">
+        An error has occurred. Please try again later.
+      </p>
     </div>
   </div>
 </template>
@@ -37,7 +45,7 @@ import CitySearch from '../CitySearch.vue';
 export default {
   components: { BaseUnits, CitySearch },
   computed: {
-    ...mapGetters(['selectedCity', 'current']),
+    ...mapGetters(['selectedCity', 'current', 'isLoading']),
     bgImageStyle() {
       return {
         backgroundImage:
@@ -96,6 +104,9 @@ export default {
     img {
       height: 150px;
     }
+  }
+  .error-message {
+    z-index: 10;
   }
 }
 @media (min-width: 768px) {

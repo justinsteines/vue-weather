@@ -22,6 +22,7 @@ export default createStore({
       units: 'imperial',
       selectedCity: city,
       isLoading: false,
+      isError: false,
     };
   },
   getters: {
@@ -49,6 +50,9 @@ export default createStore({
     isLoading(state) {
       return state.isLoading;
     },
+    isError(state) {
+      return state.isError;
+    },
   },
   mutations: {
     weatherData(state, payload) {
@@ -64,9 +68,13 @@ export default createStore({
     setIsLoading(state, payload) {
       state.isLoading = payload;
     },
+    setIsError(state, payload) {
+      state.isError = payload;
+    },
   },
   actions: {
     async getWeatherData(context) {
+      // Selected city coordinates are required in order to fetch weather data.
       if (!this.getters.selectedCity.coord) {
         return;
       }
@@ -76,14 +84,19 @@ export default createStore({
         lat: this.getters.selectedCity.coord.lat,
       });
       context.commit('setIsLoading', true);
-      const res = await fetch(
-        `${
-          process.env.VUE_APP_WEATHER_API_DATA_URL
-        }/data?${searchParams.toString()}`
-      );
-      const weatherData = await res.json();
+      context.commit('setIsError', false);
+      let weatherData = {};
+      try {
+        const res = await fetch(
+          `${
+            process.env.VUE_APP_WEATHER_API_DATA_URL
+          }/data?${searchParams.toString()}`
+        );
+        weatherData = await res.json();
+      } catch {
+        context.commit('setIsError', true);
+      }
       context.commit('setIsLoading', false);
-      console.log(weatherData);
       context.commit('weatherData', weatherData);
     },
     setSelectedCity(context, city) {

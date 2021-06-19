@@ -1,8 +1,11 @@
 <template>
   <current-weather-hero></current-weather-hero>
   <the-main-nav class="mb-5"></the-main-nav>
+  <div v-if="isError">
+    <p class="fs-5">An error has occurred. Please try again later.</p>
+  </div>
   <the-loading-spinner
-    v-if="!isDataRetrieved"
+    v-else-if="!isDataRetrieved"
     class="mt-5"
   ></the-loading-spinner>
   <div class="container mb-5" v-else>
@@ -30,6 +33,7 @@ export default {
       'minutely',
       'alerts',
       'isLoading',
+      'isError',
     ]),
     isDataRetrieved() {
       if (
