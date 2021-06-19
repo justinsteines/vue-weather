@@ -39,7 +39,7 @@
       </base-metric>
       <base-metric
         title="uv index"
-        :icon="`uvi/uv-index-${Math.round(uvi) > 12 ? 11 : Math.round(uvi)}`"
+        :icon="`uvi/uv-index-${Math.round(uvi) > 11 ? 11 : Math.round(uvi)}`"
       >
         {{ uvi.toFixed(1) }}
       </base-metric>

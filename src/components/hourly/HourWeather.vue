@@ -22,7 +22,7 @@
     <img
       :src="
         require(`@/assets/weather-icons/uvi/uv-index-${
-          Math.round(uvi) > 12 ? 11 : Math.round(uvi)
+          Math.round(uvi) > 11 ? 11 : Math.round(uvi)
         }.svg`)
       "
       alt="uv index"
