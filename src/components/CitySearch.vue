@@ -26,7 +26,7 @@
         role="button"
         tabindex="0"
         @click="onSelectCity(city)"
-        class="px-3"
+        class="px-3 py-1"
         @keydown.down.prevent="onNext"
         @keydown.up.prevent="onPrevious"
         @keydown.enter="onSelectCity(city)"
@@ -97,5 +97,12 @@ export default {
 .city-search,
 .suggestions {
   z-index: 1;
+}
+.suggestions {
+  & > div:focus {
+    background-color: var(--color-primary);
+    outline: none;
+    color: white;
+  }
 }
 </style>
