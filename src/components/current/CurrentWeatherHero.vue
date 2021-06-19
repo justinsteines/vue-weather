@@ -23,6 +23,9 @@
       </div>
       <city-search class="ms-lg-auto align-self-lg-start p-lg-4"></city-search>
     </div>
+    <div v-else class="d-flex justify-content-center align-items-center h-100">
+      <the-loading-spinner></the-loading-spinner>
+    </div>
   </div>
 </template>
 
