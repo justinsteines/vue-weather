@@ -12,7 +12,8 @@ export default {
   props: ['mmVolume'],
   computed: {
     barHeight() {
-      return this.mmVolume <= 50 ? this.mmVolume : 50;
+      const scale = 5;
+      return this.mmVolume * scale <= 50 ? this.mmVolume * scale : 50;
     },
   },
 };
