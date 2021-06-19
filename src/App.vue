@@ -6,15 +6,7 @@
     class="mt-5"
   ></the-loading-spinner>
   <div class="container" v-else>
-    <div v-if="alerts" class="row">
-      <div class="col">
-        <weather-alert
-          v-for="alert in alerts"
-          :key="alert.start + alert.end + alert.event"
-          :alert="alert"
-        ></weather-alert>
-      </div>
-    </div>
+    <weather-alerts :alerts="alerts"></weather-alerts>
     <router-view></router-view>
   </div>
 </template>
@@ -23,10 +15,10 @@
 import { mapGetters } from 'vuex';
 import CurrentWeatherHero from './components/current/CurrentWeatherHero.vue';
 import TheMainNav from './components/TheMainNav.vue';
-import WeatherAlert from './components/WeatherAlert.vue';
+import WeatherAlerts from './components/alerts/WeatherAlerts.vue';
 
 export default {
-  components: { CurrentWeatherHero, TheMainNav, WeatherAlert },
+  components: { CurrentWeatherHero, TheMainNav, WeatherAlerts },
   mounted: function () {
     this.$store.dispatch('getWeatherData');
   },
