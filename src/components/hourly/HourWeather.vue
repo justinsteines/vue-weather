@@ -21,7 +21,9 @@
   <td class="d-none d-md-table-cell rounded-md-end">
     <img
       :src="
-        require(`@/assets/weather-icons/uvi/uv-index-${Math.round(uvi)}.svg`)
+        require(`@/assets/weather-icons/uvi/uv-index-${
+          Math.round(uvi) > 12 ? 11 : Math.round(uvi)
+        }.svg`)
       "
       alt="uv index"
     />{{ uvi.toFixed(1) }}

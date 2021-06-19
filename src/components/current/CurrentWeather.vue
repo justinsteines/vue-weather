@@ -14,7 +14,9 @@
       <div class="col">
         <base-current-metric
           title="uv index"
-          :icon="`uvi/uv-index-${Math.round(current.uvi)}`"
+          :icon="`uvi/uv-index-${
+            Math.round(current.uvi) > 12 ? 11 : Math.round(current.uvi)
+          }`"
         >
           {{ current.uvi.toFixed(1) }}
         </base-current-metric>

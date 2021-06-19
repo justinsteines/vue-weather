@@ -37,7 +37,10 @@
       <base-metric title="wind gust" icon="wind">
         <base-wind :windGust="windGust"></base-wind>
       </base-metric>
-      <base-metric title="uv index" :icon="`uvi/uv-index-${Math.round(uvi)}`">
+      <base-metric
+        title="uv index"
+        :icon="`uvi/uv-index-${Math.round(uvi) > 12 ? 11 : Math.round(uvi)}`"
+      >
         {{ uvi.toFixed(1) }}
       </base-metric>
       <base-metric title="pressure" icon="barometer">
