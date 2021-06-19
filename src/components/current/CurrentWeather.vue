@@ -12,11 +12,6 @@
         >
       </div>
       <div class="col">
-        <base-current-metric title="humidity" icon="humidity"
-          >{{ current.humidity }}<small>%</small></base-current-metric
-        >
-      </div>
-      <div class="col">
         <base-current-metric
           title="uv index"
           :icon="`uvi/uv-index-${Math.round(current.uvi)}`"
@@ -25,8 +20,16 @@
         </base-current-metric>
       </div>
       <div class="col">
-        <base-current-metric title="cloud cover" icon="cloudy">
-          {{ current.clouds }}<small>%</small>
+        <base-current-metric title="humidity" icon="humidity"
+          >{{ current.humidity }}<small>%</small></base-current-metric
+        >
+      </div>
+      <div class="col">
+        <base-current-metric title="wind" icon="windsock">
+          <base-wind
+            :windDeg="current.wind_deg"
+            :windSpeed="current.wind_speed"
+          ></base-wind>
         </base-current-metric>
       </div>
       <div class="col">
@@ -35,11 +38,8 @@
         </base-current-metric>
       </div>
       <div class="col">
-        <base-current-metric title="wind" icon="windsock">
-          <base-wind
-            :windDeg="current.wind_deg"
-            :windSpeed="current.wind_speed"
-          ></base-wind>
+        <base-current-metric title="cloud cover" icon="cloudy">
+          {{ current.clouds }}<small>%</small>
         </base-current-metric>
       </div>
     </div>

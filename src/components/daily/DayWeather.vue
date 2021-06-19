@@ -49,10 +49,13 @@
 
 <script>
 import dayjs from 'dayjs';
+import isToday from 'dayjs/plugin/isToday';
 
 import BaseUnits from '../BaseUnits.vue';
 import BaseWind from '../BaseWind.vue';
 import BaseMetric from './BaseDayMetric.vue';
+
+dayjs.extend(isToday);
 
 export default {
   components: { BaseUnits, BaseWind, BaseMetric },
@@ -72,9 +75,7 @@ export default {
   ],
   computed: {
     dayOfWeek() {
-      const currentDateOfMonth = new Date(Date.now()).getDate();
-      const weatherForDateOfMonth = new Date(this.dt * 1000).getDate();
-      if (currentDateOfMonth === weatherForDateOfMonth) {
+      if (dayjs(this.dt * 1000).isToday()) {
         return 'Today';
       }
       return new Date(this.dt * 1000).toLocaleString('en-US', {

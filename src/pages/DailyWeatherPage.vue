@@ -1,5 +1,5 @@
 <template>
-  <h1 class="text-start mb-4">7-Day Forecast</h1>
+  <h1 class="text-start mb-4">8-Day Forecast</h1>
   <daily-weather :daily="daily"></daily-weather>
 </template>
 
