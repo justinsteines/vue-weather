@@ -9,7 +9,10 @@
       />
       <div class="title text-start">{{ title }}</div>
     </div>
-    <div class="value d-flex justify-content-center align-items-center">
+    <div
+      class="value d-flex justify-content-center align-items-center"
+      :class="{ wind: title === 'wind' }"
+    >
       <slot></slot>
     </div>
   </div>
@@ -36,6 +39,9 @@ export default {
   .value {
     font-size: 1.8rem;
     line-height: 100px;
+    &.wind {
+      font-size: 1.4rem;
+    }
   }
 }
 @media (min-width: 576px) {
@@ -45,6 +51,9 @@ export default {
     }
     .value {
       font-size: 2rem;
+      &.wind {
+        font-size: 1.9rem;
+      }
     }
   }
 }
@@ -55,6 +64,9 @@ export default {
     }
     .value {
       font-size: 2.2rem;
+      &.wind {
+        font-size: 1.7rem;
+      }
     }
   }
 }
